@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NurseController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/nurse/create', [NurseController::class, 'create'])->name('nurse.create');
+Route::post('/nurse', [NurseController::class, 'store'])->name('nurse.store');
+Route::get('/nurse/edit', [NurseController::class, 'edit'])->name('nurse.edit');
+Route::patch('/nurse/', [NurseController::class, 'update'])->name('nurse.update');
 
 require __DIR__.'/auth.php';
